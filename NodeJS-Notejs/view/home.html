@@ -1,0 +1,62 @@
+<html>
+<head>
+   
+    <style type="text/css">
+        
+        h1{
+            font-family: arial;
+            font-size: 19px;
+            font-style: italic;
+        }
+        input{
+            display: block;
+            margin: 10px;
+            width: 250px;
+            border-radius: 12px;
+        }
+        button{
+            border-radius: 35px;
+            width: 150px;
+            margin: 10px;
+            padding: 10px;
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+ <meta charset="utf-8">
+      <h1>Informe o número de campos que deseja criar</h1>
+            <div id="formulario" style="display: block;">
+            	<input id="cmp1" name="campos" type="number">
+	<button type="button" onclick="criarformulario()">Criar campos informados</button>
+	
+	</div>   
+	 
+	<form id="newForm" action="/soma" method="post"></form>
+
+    <script>
+
+function criarformulario(){
+            let numeroCampos = document.getElementById('cmp1').value
+            let form = document.getElementById('newForm')
+            document.getElementById("formulario").style.display = "none";
+            
+            for(let i = 0; i < numeroCampos; i++){
+                form.insertAdjacentHTML("afterbegin", `<input type='number' name=${"param"+i} required> `)   
+            }
+
+            form.insertAdjacentHTML("beforeend", "<button onclick='somarCampos()' type='submit'>Clique para Somar</button>")   
+        }
+
+
+        
+
+    </script>
+
+
+
+
+
+</body>
+</html>
